@@ -12,3 +12,4 @@ import '../styles/app.css';
 import '../js/bootstrap';
 
 // my scripts
+import '../scripts/_calendar';
