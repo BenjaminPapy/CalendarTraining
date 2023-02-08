@@ -1,4 +1,4 @@
-const months = ['January', 'Ferbruary', 'March', 'April', 'May', 'June', 'July',
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
 'August', 'September', 'October', 'November', 'December'];
 console.log(months);
 // DOM Elements
@@ -24,7 +24,7 @@ let firstDay = undefined;
 let lastDay = undefined;
 
 const events = {
-    '2023-January-15': [{
+    '2023-February-15': [{
         'title': 'Florin is dumb',
         'time': 'All the time'
     }],
@@ -113,15 +113,13 @@ function createEventEl(data) {
 
     eventEl.innerHTML = `
         <div class="meeting-logo">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar" width="30" height="30"
-                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
-            <path d="M16 3l0 4"></path>
-            <path d="M8 3l0 4"></path>
-            <path d="M4 11l16 0"></path>
-            <path d="M11 15l1 0"></path>
-            <path d="M12 15l0 3"></path>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-event" height="70%" width="70%" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
+                <path d="M16 3l0 4"></path>
+                <path d="M8 3l0 4"></path>
+                <path d="M4 11l16 0"></path>
+                <path d="M8 15h2v2h-2z"></path>
             </svg>
         </div>
         <div class="meeting-name">

@@ -21,69 +21,65 @@
         3. We can delete the event.
         4. Réparer erreur mois : "UNDEFINED" sortie de je sais pas d'ou..
         5. Mettre une transition entre le changement de mois.
-        6. 
+        6. Système de couleurs aléatoire( duo? ou seule?).
+        7. Système de point de couleur en suivant de l'importance ou de la catégorie de l'évent.
+        8. Ajouter une catégorie
+        9. Ajouter un point / repère du mois afficher.
     -->
     <body>
         <div id="popup" class="calendar-popup hidden">
-            <!-- Nom a changer -->
-            <div class="bg-white">
-                <button id="close" class="popup-close">
+            <div class="pop-wrapper">
+                <a id="close" class="pop-close">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M18 6l-12 12"></path>
                         <path d="M6 6l12 12"></path>
                     </svg>
-                </button>
-                <h3 class="text-center">Add an event</h3>
-                <div class="mt-04">
-                           <!-- Nom a changer -->
-                    <label class="font-semibold" for="title">Title</label>
-                           <!-- Nom a changer -->
-                    <input id="title" class="borderp-2" type="text" placeholder="Enter title"/>
+                </a>
+                <h3 class="pop-title">New event</h3>
+                <div class="input-wrapper">
+                    <label class="name-input" for="title">Title</label>
+                    <input id="title" class="input" type="text" placeholder="Enter title"/>
                 </div>
-                <!-- Nom a changer -->
-                <div class="mt-04">
-                            <!-- Nom a changer -->
-                    <label class="font-semibold" for="time">Time</label>
-                            <!-- Nom a changer -->
-                    <input id="time" class="borderp-2" type="text" placeholder="Enter time (11:00)"/>
+                <div class="input-wrapper">
+                    <label class="name-input" for="time">Time</label>
+                    <input id="time" class="input" type="text" placeholder="Enter time (11:00)"/>
                 </div>
-                        <!-- Nom a changer -->
-                <button id="add" class="bg-cyan">Add</button>
+                <a id="add" class="pop-add">Add</a>
             </div>
         </div>
         <div class="calendar-wrapper">
             <div class="calendar-first">
-                <button id="left"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler
+                <a id="left" class="month-arrow"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler
                     icon-tabler-arrow-big-left-filled" width="24" height="24" viewBox="0 0 24 24"
                     stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
                     stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M20 15h-8v3.586a1 1 0 0 1 -1.707 .707l-6.586 -6.586a1 1 0 0 1 0 -1.414l6.586 -6.586a1 1 0 0 1 1.707 .707v3.586h8a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1z" fill="currentColor"></path>
                     </svg>
-                </button>
+                </a>
 
                 <h1 id="date"></h1>
 
-                <button id="right"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler 
+                <a id="right" class="month-arrow"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler 
                     icon-tabler-arrow-big-right-filled" width="24" height="24" viewBox="0 0 24 24" 
                     stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" 
                     stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M4 9h8v-3.586a1 1 0 0 1 1.707 -.707l6.586 6.586a1 1 0 0 1 0 1.414l-6.586 6.586a1 1 0 0 1 -1.707 -.707v-3.586h-8a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1z" fill="currentColor"></path>
                     </svg>
-                </button>
+                </a>
             </div>
 
             <div class="calendar-second">
                 <div class="calendar-days-name">
-                    <div class="days-list">Tu</div>
-                    <div class="days-list">We</div>
-                    <div class="days-list">Mo</div>
-                    <div class="days-list">Th</div>
-                    <div class="days-list">Fr</div>
-                    <div class="days-list">Sa</div>
-                    <div class="days-list">Su</div>
+                    <div class="days-list">Monday</div>
+                    <div class="days-list">Tuesday</div>
+                    <div class="days-list">Wednesday</div>
+                    <div class="days-list">Thursday</div>
+                    <div class="days-list">Friday</div>
+                    <div class="days-list">Saturday</div>
+                    <div class="days-list">Sunday</div>
                 </div>
                 <div id="calendar" class="calendar-days-grid"></div>
             </div>
@@ -94,14 +90,14 @@
 
 
             <div class="calendar-fourth">
-                <button id="open" class="calendar-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <a id="open" class="calendar-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-plus" height="36px" width="36px" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
                         <path d="M9 12l6 0"></path>
                         <path d="M12 9l0 6"></path>
                     </svg>
-                </button>
+                </a>
             </div>
         </div>
     </body>

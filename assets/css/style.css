@@ -1,7 +1,7 @@
 body {
     display: flex;
     justify-content: center;
-    background: #2E639C
+    background: #FCF7F4;
 }
 
 .calendar-popup {
@@ -11,29 +11,36 @@ body {
     align-items: center;
     height: 100%;
     width: 100%;
-    background: #2e2e2eD9;
     z-index: 20;
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3.5px );
+    -webkit-backdrop-filter: blur( 3.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .hidden {
     visibility: hidden;
 }
 
-/*Nom à changer*/
-.bg-white {
+.pop-wrapper {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: #0a4aab;
     height: auto;
     width: 50vw;
     padding: 5%;
     font-size: 1.3rem;
+    background: rgba( 255, 255, 255, 0.45 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 16.5px );
+    -webkit-backdrop-filter: blur( 16.5px );
+    border-radius: 10px;
 }
 
-.popup-close {
+.pop-close {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -44,33 +51,37 @@ body {
     width: 5vw;
 }
 
-/*Nom à changer*/
-.text-center {
+.pop-title {
     color: red;
     font-weight: bold;
+    font-size: 2rem;
     padding: 3vh 0 2vh 0;
 }
 
-.font-semibold {
-    font-weight: bold;
-}
-
-/*Nom à changer*/
-.mt-04 {
+.input-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     line-height: 3.5vh;
 }
 
-/*Nom à changer*/
-.borderp-2 {
+.name-input {
+    font-weight: bold;
+}
+
+.input {
     border-radius: 5px;
 }
 
-/*Nom à changer*/
-.bg-cyan {
-    background: cyan;
-    color: aliceblue;
+.pop-add {
     height: 3vh;
     width: 15vw;
+    background: rgba( 255, 255, 255, 0.2 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3.5px );
+    -webkit-backdrop-filter: blur( 3.5px );
+    border-radius: 10px;
 }
 
 .bg-cyan:hover {
@@ -96,19 +107,40 @@ body {
     align-items: center;
     flex-direction: row;
     height: 7vh;
-    width: 50%;
-    background-color: whitesmoke;
+    width: 700px;
     z-index: 2;
+    background: #839788;
+    border-radius: 10px 10px 0 0;
+}
+
+.month-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    width: 150px;
+    border-radius: 50px;
+    background: #839788;
+    box-shadow:  9px 9px 18px #7a8c7e,
+                -9px -9px 18px #8ca292;
+}
+
+.month-arrow:hover {
+    border-radius: 50px;
+    background: linear-gradient(145deg, #76887a, #8ca292);
+    box-shadow:  9px 9px 18px #7a8c7e,
+                -9px -9px 18px #8ca292;
 }
 
 h1 {
+    font-size: 1.5rem;
     text-transform: uppercase;
-    font-size: 1rem;
+    font-weight: bold;
 }
 
 .calendar-second {
     position: relative;
-    width: 50%;
+    width: 700px;
 }
 
 .calendar-days-name {
@@ -116,16 +148,17 @@ h1 {
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
-    height: 4vh;
+    height: 5vh;
     width: 100%;
-    background-color: antiquewhite;
+    background-color: #BAA898;
+    border-top: 2px solid #C8C8C8;
+    border-bottom: 2px solid #C8C8C8;
 }
 
 .days-list {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid grey;
     height: 100%;
     width: 100%;
 }
@@ -134,23 +167,30 @@ h1 {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-auto-rows: minmax(50px, auto);
-    grid-gap: 5px;
-    border: 1px solid red;
+    grid-gap: 15px;
+    padding: 3%;
+    min-height: 460px;
+    background: #839788;
     z-index: 5;
-    background: whitesmoke;
 }
 
 .days-item {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blue;
-    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    border-radius: 50px;
+    background: #839788;
+    box-shadow:  3px 3px 5px #7a8c7e,
+                -3px -3px 5px #8ca292;
 }
 
 .days-item:hover {
-    background-color: yellow;
-    border-radius: 50%;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #76887a, #8ca292);
+    box-shadow:  3px 3px 5px #7a8c7e,
+                -3px -3px 5px #8ca292;
     opacity: 85%;
     cursor: pointer;
 }
@@ -170,9 +210,9 @@ h1 {
     position: relative;
     display: flex;
     align-items: center;
-    background: antiquewhite;
-    height: auto;
-    width: 50%;
+    background: white;
+    border-top: 2px solid #C8C8C8;
+    width: 700px;
 }
 
 #events {
@@ -184,36 +224,43 @@ h1 {
     display: flex;
     flex-direction: row;
     height: 5vh;
-    background: blue;
+    background: #BAA898;
 }
 
+/* js changer height et width ici l.116 */
 .meeting-logo {
-    background: grey;
-    width: 25%;
-}
-
-/* js changer height et width ici l.106 */
-.meeting-logo svg {
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
 }
 
 .meeting-name {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
     font-size: 1.15rem;
-    padding-left: 10%;
+    max-width: 75%;
 }
 
 .calendar-fourth {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 2%;
-    height: 5vh;
-    width: 50%;
-    background: whitesmoke;
+    height: 6vh;
+    width: 700px;
+    background: #BAA898;
+    border-top: 2px solid #C8C8C8;
+    border-radius: 0 0 10px 10px;
 }
 
 .calendar-btn {
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 /* A remettre en place */
